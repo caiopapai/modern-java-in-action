@@ -1,9 +1,12 @@
-package br.com.moder.java.in.action.part2.streams.streams.introduction;
+package br.com.moder.java.in.action.part2.streams.working.with.streams;
+
+import br.com.moder.java.in.action.part2.streams.streams.introduction.Dish;
+import br.com.moder.java.in.action.part2.streams.streams.introduction.DishesRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MainAppStream {
+public class TakingWhileApp {
 
     public static void main(String[] args) {
 
@@ -11,12 +14,11 @@ public class MainAppStream {
 
         List<Dish> menu = repository.getllDishes();
 
-        List<String> threeHighCaloricDishNames = menu.stream() // Creates a pipeline
-                .filter(dish -> dish.getCalories() > 300) //Filter high-calorie dishes
+        List<String> filteredMenu = menu.stream() // Creates a pipeline
                 .map(Dish::getName) // Get the names of Dishes
                 .limit(3) // Select only the first three
                 .collect(Collectors.toList()); //Stores the result in another list;
 
-        System.out.println(threeHighCaloricDishNames);
+        System.out.println(filteredMenu);
     }
 }
