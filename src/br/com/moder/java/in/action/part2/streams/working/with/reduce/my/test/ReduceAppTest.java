@@ -15,6 +15,11 @@ public class ReduceAppTest {
         Optional<Integer> newSum = numbers.stream().reduce((a, b) -> a + b);
         System.out.println(newSum);
 
+        Optional<Integer> max = numbers.stream().reduce(Integer::max);
+        System.out.println(max);
+
+        Optional<Integer> min = numbers.stream().reduce(Integer::min);
+        System.out.println(min);
 
     }
 }
